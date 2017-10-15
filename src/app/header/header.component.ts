@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Http, Response} from '@angular/http';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(http: Http) { this.http = http; }
+
 
   ngOnInit() {
   }
 
+
+
+  findIngredient(searchTerm: HTMLInputElement) {
+    console.log(`User entered: ${searchTerm.value}`);
+  }
 }

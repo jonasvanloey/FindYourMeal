@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +12,9 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { IngredientListComponent } from './ingredient/ingredient-list/ingredient-list.component';
 import { IngredientItemComponent } from './ingredient/ingredient-list/ingredient-item/ingredient-item.component';
 import { IngredientDetailComponent } from './ingredient/ingredient-detail/ingredient-detail.component';
+import {HttpModule} from '@angular/http';
+import {GerechtService} from './gerecht/gerecht.service';
+import {IngredientService} from './ingredient/ingredient.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,11 @@ import { IngredientDetailComponent } from './ingredient/ingredient-detail/ingred
     IngredientDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [GerechtService, IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
