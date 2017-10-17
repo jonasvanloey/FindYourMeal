@@ -15,6 +15,8 @@ import { IngredientDetailComponent } from './ingredient/ingredient-detail/ingred
 import {HttpModule} from '@angular/http';
 import {GerechtService} from './gerecht/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
+import { SearchBoxComponent } from './header/search-box/search-box.component';
+import {SearchBoxService} from './header/search-box.service';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,15 @@ import {IngredientService} from './ingredient/ingredient.service';
     IngredientComponent,
     IngredientListComponent,
     IngredientItemComponent,
-    IngredientDetailComponent
+    IngredientDetailComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [GerechtService, IngredientService],
+  providers: [GerechtService, IngredientService, SearchBoxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

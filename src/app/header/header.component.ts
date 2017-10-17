@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Http, Response} from '@angular/http';
 
 
 @Component({
@@ -10,7 +9,7 @@ import {Http, Response} from '@angular/http';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(http: Http) { this.http = http; }
+  constructor() {}
 
 
   ngOnInit() {
@@ -18,7 +17,4 @@ export class HeaderComponent implements OnInit {
 
 
 
-  findIngredient(searchTerm: HTMLInputElement) {
-    console.log(`User entered: ${searchTerm.value}`);
-  }
 }
