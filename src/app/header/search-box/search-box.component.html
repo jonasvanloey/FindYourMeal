@@ -1,0 +1,10 @@
+
+<input name="search"  #searchTerm >
+<button (click)="findIngredient(searchTerm )">Search</button>
+
+
+<br>
+<div *ngFor="let i of ingredients">
+  <img src="{{i.images.original.url}}">
+  <!--<img [src]="i.images.original.url">-->
+</div>
