@@ -17,6 +17,8 @@ import {GerechtService} from './gerecht/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
 import { SearchBoxComponent } from './header/search-box/search-box.component';
 import {SearchBoxService} from './header/search-box.service';
+import { AccountComponent } from './account/account.component';
+import { AccountLoginComponent } from './account/account-login/account-login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {SearchBoxService} from './header/search-box.service';
     IngredientListComponent,
     IngredientItemComponent,
     IngredientDetailComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    AccountComponent,
+    AccountLoginComponent
   ],
   imports: [
     BrowserModule,
