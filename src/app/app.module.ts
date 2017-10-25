@@ -20,6 +20,19 @@ import {SearchBoxService} from './header/search-box.service';
 import { AccountComponent } from './account/account.component';
 import { AccountLoginComponent } from './account/account-login/account-login.component';
 
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
+    authDomain: "findyourmeal-acb2b.firebaseapp.com",
+    databaseURL: "https://findyourmeal-acb2b.firebaseio.com",
+    projectId: "findyourmeal-acb2b",
+    storageBucket: "findyourmeal-acb2b.appspot.com",
+    messagingSenderId: "121974858612"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,14 +48,18 @@ import { AccountLoginComponent } from './account/account-login/account-login.com
     IngredientDetailComponent,
     SearchBoxComponent,
     AccountComponent,
-    AccountLoginComponent
+    AccountLoginComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [GerechtService, IngredientService, SearchBoxService],
+  providers: [GerechtService, IngredientService, SearchBoxService,AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
