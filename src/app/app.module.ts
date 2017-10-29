@@ -24,14 +24,19 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
-    authDomain: "findyourmeal-acb2b.firebaseapp.com",
-    databaseURL: "https://findyourmeal-acb2b.firebaseio.com",
-    projectId: "findyourmeal-acb2b",
-    storageBucket: "findyourmeal-acb2b.appspot.com",
-    messagingSenderId: "121974858612"
-};
+import { AccountSignupComponent } from './account/account-signup/account-signup.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import {AuthService} from "./account/auth.service";
+import { AccountHistoryComponent } from './account/account-history/account-history.component';
+
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
+//     authDomain: "findyourmeal-acb2b.firebaseapp.com",
+//     databaseURL: "https://findyourmeal-acb2b.firebaseio.com",
+//     projectId: "findyourmeal-acb2b",
+//     storageBucket: "findyourmeal-acb2b.appspot.com",
+//     messagingSenderId: "121974858612"
+// };
 
 @NgModule({
   declarations: [
@@ -49,17 +54,21 @@ export const firebaseConfig = {
     SearchBoxComponent,
     AccountComponent,
     AccountLoginComponent,
+    AccountSignupComponent,
+    AccountHistoryComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule
   ],
-  providers: [GerechtService, IngredientService, SearchBoxService,AngularFireDatabase],
+  providers: [GerechtService, IngredientService, SearchBoxService,AngularFireDatabase,AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
