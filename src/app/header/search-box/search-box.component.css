@@ -1,0 +1,34 @@
+#invoer{
+  width: 260px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+#invoer:focus {
+  width: 40%;
+  color: orangered;
+}
+#zoek{
+  position:relative;
+  padding:12px 30px;
+font-size: medium;
+  font-weight: 600;
+  border:2px solid darkorange;
+  background-color:darkorange;
+  color:#fafafa;
+}
+#zoek:hover {
+  background-color:#fafafa;
+  color: orangered;
+}
+#searchField{
+  margin-left: 40%;
+  margin-top: 2%;
+}

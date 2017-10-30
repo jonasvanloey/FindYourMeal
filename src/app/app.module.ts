@@ -15,8 +15,10 @@ import { IngredientDetailComponent } from './ingredient/ingredient-detail/ingred
 import {HttpModule} from '@angular/http';
 import {GerechtService} from './gerecht/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
-import { SearchBoxComponent } from './header/search-box/search-box.component';
 import {SearchBoxService} from './header/search-box.service';
+
+import {SearchBoxComponent} from './header/search-box/search-box.component';
+
 import { AccountComponent } from './account/account.component';
 import { AccountLoginComponent } from './account/account-login/account-login.component';
 
@@ -37,6 +39,7 @@ import { AccountHistoryComponent } from './account/account-history/account-histo
 //     storageBucket: "findyourmeal-acb2b.appspot.com",
 //     messagingSenderId: "121974858612"
 // };
+
 
 @NgModule({
   declarations: [

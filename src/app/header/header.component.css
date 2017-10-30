@@ -1,0 +1,19 @@
+#logo{
+width: 14%;
+  margin: 2% 0 0 15%;
+}
+#aantal{
+
+  background-color: white;
+  color: grey;
+  padding: 12px;
+  font-size: 12px;
+  border: orangered;
+  cursor: pointer;
+}
+select:hover{
+  background-color: orangered;
+}
+#aantalBox option:hover {
+  background-color:yellow;
+}
