@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import {SearchBoxService} from '../search-box.service';
+
 
 @Component({
   selector: 'app-search-box',
@@ -7,6 +9,7 @@ import {SearchBoxService} from '../search-box.service';
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
+
   ingredients: any;
   constructor(private searchBox: SearchBoxService) { }
 
@@ -22,6 +25,7 @@ export class SearchBoxComponent implements OnInit {
         (error) => console.log(error)
       );
       }
+
 
 
 }

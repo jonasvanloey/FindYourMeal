@@ -1,0 +1,15 @@
+<!--<div *ngIf="!authService.isAuthenticated()">-->
+  <!--<app-account-login></app-account-login>-->
+  <!--<app-account-signup></app-account-signup>-->
+<!--</div>-->
+<!--<div *ngIf="authService.isAuthenticated()">-->
+  <!--<app-account-history></app-account-history>-->
+<!--</div>-->
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <router-outlet></router-outlet>
+</div>
+
+
+<span routerLink="SignIn" style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span>

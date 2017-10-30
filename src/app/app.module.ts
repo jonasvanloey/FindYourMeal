@@ -16,7 +16,30 @@ import {HttpModule} from '@angular/http';
 import {GerechtService} from './gerecht/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
 import {SearchBoxService} from './header/search-box.service';
+
 import {SearchBoxComponent} from './header/search-box/search-box.component';
+
+import { AccountComponent } from './account/account.component';
+import { AccountLoginComponent } from './account/account-login/account-login.component';
+
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+
+import { AccountSignupComponent } from './account/account-signup/account-signup.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import {AuthService} from "./account/auth.service";
+import { AccountHistoryComponent } from './account/account-history/account-history.component';
+
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
+//     authDomain: "findyourmeal-acb2b.firebaseapp.com",
+//     databaseURL: "https://findyourmeal-acb2b.firebaseio.com",
+//     projectId: "findyourmeal-acb2b",
+//     storageBucket: "findyourmeal-acb2b.appspot.com",
+//     messagingSenderId: "121974858612"
+// };
+
 
 @NgModule({
   declarations: [
@@ -31,14 +54,24 @@ import {SearchBoxComponent} from './header/search-box/search-box.component';
     IngredientListComponent,
     IngredientItemComponent,
     IngredientDetailComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    AccountComponent,
+    AccountLoginComponent,
+    AccountSignupComponent,
+    AccountHistoryComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule
   ],
-  providers: [GerechtService, IngredientService, SearchBoxService],
+  providers: [GerechtService, IngredientService, SearchBoxService,AngularFireDatabase,AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
