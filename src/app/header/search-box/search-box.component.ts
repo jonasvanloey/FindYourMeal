@@ -15,16 +15,26 @@ export class SearchBoxComponent implements OnInit {
   url="";
   unirest = require('unirest');
   constructor(private searchBox: SearchBoxService) { }
-
+  ingredientarray:any;
   ngOnInit() {
-    this.autoingredient();
+
+  }
+  getRecipyByIngredient(){
+    this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1")
+      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+      .end(function (result) {
+        console.log(result.status, result.headers, result.body);
+      });
+
   }
   autoingredient(){
 
     this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?intolerances=egg&metaInformation=false&number=10&query=appl")
-          .headers({"X-Mashape-Key": "OxnJeFbSHHmshsNFl0ywpAi2VAt6p1j0X49jsn2vsv4lpUfDt4", "Accept": "application/json"})
+          .headers({"X-Mashape-Key": "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE","Accept": "application/json"})
           .end(function (result) {
-            console.log(result);
+
+            console.log(result.body);
       });
 
 
