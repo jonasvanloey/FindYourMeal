@@ -1,13 +1,13 @@
 
 <div id="searchField">
+  <form action="" [formGroup]="ingredientsForm" (ngSubmit)="addIngredient()">
 
+<input formControlName="ingredient" type="text" placeholder="Vul hier uw ingredienten in" id="invoer" >
 
-<input name="title" type="text" placeholder="Vul hier uw ingredienten in" id="invoer" #searchTerm>
-
-<button class="btn btn-default" id="zoek"  (click)="findIngredient(searchTerm)">Zoek</button>
+<button type="submit" class="btn btn-default" id="zoek" >Zoek</button>
+  </form>
 <br>
-<div *ngFor="let i of ingredients">
-  <img class="img images" src="{{i.images.original.url}}">
-</div>
+
+
 </div>
 

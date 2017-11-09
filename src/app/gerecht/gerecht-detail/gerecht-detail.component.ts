@@ -12,4 +12,5 @@ export class GerechtDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }
