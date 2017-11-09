@@ -27,6 +27,7 @@
     "firebase": "^4.5.2",
     "rapidapi-connect": "0.0.6",
     "rxjs": "^5.4.2",
+    "unirest": "^0.5.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
