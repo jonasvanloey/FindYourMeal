@@ -22,13 +22,13 @@ import {SearchBoxComponent} from './header/search-box/search-box.component';
 import { AccountComponent } from './account/account.component';
 import { AccountLoginComponent } from './account/account-login/account-login.component';
 
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { AngularFireDatabaseModule,AngularFireDatabase } from 'angularfire2/database';
+// import { AngularFireModule } from 'angularfire2';
 
 import { AccountSignupComponent } from './account/account-signup/account-signup.component';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import {AuthService} from "./account/auth.service";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {AuthService} from './account/auth.service';
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
 
 // export const firebaseConfig = {
@@ -71,7 +71,7 @@ import { AccountHistoryComponent } from './account/account-history/account-histo
     // AngularFireDatabaseModule,
     // AngularFireAuthModule
   ],
-  providers: [GerechtService, IngredientService, SearchBoxService,AngularFireDatabase,AuthService],
+  providers: [GerechtService, IngredientService, SearchBoxService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
