@@ -1,8 +1,7 @@
-export class Ingredients{
+export class Ingredients {
   public ingredient: string;
 
-  constructor(ingredient:string)
-{
-  this.ingredient=ingredient;
-}
+  constructor(ingredient: string)  {
+  this.ingredient = ingredient;
+  }
 }

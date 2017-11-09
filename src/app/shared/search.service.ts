@@ -10,8 +10,9 @@ import 'rxjs';
 @Injectable()
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
-  private ingredients: Ingredients[]=[
+  private ingredients: Ingredients[]= [
   ];
+  private recipes: Recipes[] = []
 
   unirest = require('unirest');
 
@@ -30,7 +31,7 @@ export class SearchService {
     this.ingredientschanged.next(this.ingredients);
   }
 
-  getRecipyByIngredient(ingredient: string) {
+  getRecipyByIngredient(ingredient: string): Promise<Recipes>  {
     this.unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?' +
       'fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1')
       .header('X-Mashape-Key', 'JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE')
