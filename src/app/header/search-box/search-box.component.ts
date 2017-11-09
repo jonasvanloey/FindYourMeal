@@ -24,11 +24,14 @@ export class SearchBoxComponent implements OnInit {
   if(this.ingredientsForm.value!=="")
   {
     this.searchservice.addIngredientToList(this.ingredientsForm.value);
+    this.ingredientsForm.reset()
   }
 
   }
   private initForm(){
     let ingredient="";
+
+
 
     this.ingredientsForm= new FormGroup({
       'ingredient':new FormControl(ingredient,Validators.required),

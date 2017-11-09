@@ -10,7 +10,6 @@ import {SearchService} from "../../shared/search.service";
 export class IngredientListComponent implements OnInit {
   ingredients: string;
 
-
   ingredientlist: any;
   constructor(private searchservice: SearchService) { }
 
@@ -20,10 +19,24 @@ export class IngredientListComponent implements OnInit {
       (ingredients: Ingredients[])=>{
         this.ingredientlist=ingredients;
         console.log(this.ingredientlist);
+        for(var i=0;i<this.ingredientlist.length;i++){
+          if(i!=0){
+            this.ingredients +='%2C'+this.ingredientlist[i].ingredient;
+          }
+          else{
+            this.ingredients =this.ingredientlist[i].ingredient;
+          }
+          console.log(this.ingredients);
+
+
+        }
+        this.searchservice.getRecipyByIngredient(this.ingredients);
+
       }
     );
     this.ingredientlist=this.searchservice.getIngredientlist();
-
-
+  }
+  onDelete(id:number){
+    this.searchservice.deleteIngredient(id);
   }
 }
