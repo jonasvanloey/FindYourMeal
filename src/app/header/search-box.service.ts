@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SearchBoxService {
 
+
   constructor(private http: Http) { }
 
 }
