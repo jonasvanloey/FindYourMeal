@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SearchBoxService {
   unirest = require('unirest');
+
   constructor(private http: Http) { }
   // getRecipyByIngredient(ingredients:string){
   //   this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredients+"&limitLicense=false&number=5&ranking=1")
