@@ -1,10 +1,13 @@
 
-<input name="search"  #searchTerm >
-<button (click)="findIngredient(searchTerm )">Search</button>
+<div id="searchField">
 
 
+<input name="title" type="text" placeholder="Vul hier uw ingredienten in" id="invoer" #searchTerm>
+
+<button class="btn btn-default" id="zoek"  (click)="autoingredient()">Zoek</button>
 <br>
 <div *ngFor="let i of ingredients">
-  <img src="{{i.images.original.url}}">
-  <!--<img [src]="i.images.original.url">-->
+  <img class="img images" src="{{i.images.original.url}}">
 </div>
+</div>
+

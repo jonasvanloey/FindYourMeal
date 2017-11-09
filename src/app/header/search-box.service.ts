@@ -9,17 +9,5 @@ import 'rxjs/add/operator/map';
 export class SearchBoxService {
 
   constructor(private http: Http) { }
-fetchFindIngredient(voedsel) {
-    return this.http.get('http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + voedsel)
-      .map((response: Response) => {
-      const data  = response.json();
-    console.log(data);
-    return data.results;
-      }).catch(
-        (error: Response) => {
-          return Observable.throw('something went wrong' + error);
-        }
-      );
 
-}
 }
