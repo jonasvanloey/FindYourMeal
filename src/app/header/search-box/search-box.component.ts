@@ -14,7 +14,6 @@ declare let require: any;
 export class SearchBoxComponent implements OnInit {
   ingredientsForm: FormGroup;
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
-
   ngOnInit() {
     this.initForm();
 
