@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SearchService} from "../shared/search.service";
+import {Ingredients} from "../shared/ingredients.model";
 
 @Component({
   selector: 'app-ingredient',
@@ -9,7 +11,9 @@ export class IngredientComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+
   }
 
 }
