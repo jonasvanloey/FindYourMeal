@@ -12,6 +12,7 @@ declare let require: any;
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
+
   ingredientsForm: FormGroup;
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
 
@@ -35,9 +36,17 @@ export class SearchBoxComponent implements OnInit {
 
     this.ingredientsForm= new FormGroup({
       'ingredient':new FormControl(ingredient,Validators.required),
+
     });
 
   }
 
 
+
+
+
+
+
+
 }
+
