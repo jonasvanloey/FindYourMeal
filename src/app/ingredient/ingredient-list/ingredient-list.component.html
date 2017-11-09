@@ -1,3 +1,4 @@
-<p>
-  ingredient-list works!
-</p>
+<div *ngFor="let i of ingredientlist; let index = index">
+  <h3>{{i.ingredient}}  <a class="btn btn-danger" (click)="onDelete(index)"><span class="glyphicon glyphicon-remove"></span></a></h3>
+
+</div>

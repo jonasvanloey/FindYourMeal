@@ -17,6 +17,7 @@ import {GerechtService} from './gerecht/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
 import {SearchBoxService} from './header/search-box.service';
 
+
 import {SearchBoxComponent} from './header/search-box/search-box.component';
 
 import { AccountComponent } from './account/account.component';
@@ -30,6 +31,7 @@ import { AccountSignupComponent } from './account/account-signup/account-signup.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './account/auth.service';
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
+import {SearchService} from "./shared/search.service";
 
 // export const firebaseConfig = {
 //   apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
@@ -71,7 +73,7 @@ import { AccountHistoryComponent } from './account/account-history/account-histo
     // AngularFireDatabaseModule,
     // AngularFireAuthModule
   ],
-  providers: [GerechtService, IngredientService, SearchBoxService, AuthService],
+  providers: [GerechtService, IngredientService, SearchBoxService, AuthService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
