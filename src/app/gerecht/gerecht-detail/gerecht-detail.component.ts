@@ -19,10 +19,9 @@ gerechtlist: any;
     this.route.params.subscribe(
       (params: Params ) => {
         this.id = +params['id'];
-      console.log(this.id);
-      //  this.searchservice.getRecipeId(this.id);
-      //  console.log( this.searchservice.getRecipeByIdInfo(this.id));
+        console.log(this.id);
          this.searchservice.getRecipeByIdInfo(this.id);
+        
        }
     );
     this.gerechtlist = this.searchservice.getRecipeDetailList();

@@ -34,11 +34,15 @@ export class SearchBoxComponent implements OnInit {
 
 
 
-  private initForm() {
-      const ingredient = '';
 
-      this.ingredientsForm = new FormGroup({
-        'ingredient': new FormControl( ingredient, Validators.required),
+
+
+      private initForm() {
+        const ingredient = '';
+
+        this.ingredientsForm = new FormGroup({
+          'ingredient': new FormControl( ingredient, Validators.required),
+
 
 
         });

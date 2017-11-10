@@ -9,7 +9,7 @@ import 'rxjs';
 import {Recipes} from "./recipes.model";
 
 
-import {Recipes} from './recipes.model';
+
 import {Gerecht} from './gerecht.model';
 
 @Injectable()
@@ -19,13 +19,18 @@ export class SearchService {
 gerechtchanged =  new Subject<Gerecht[]>();
   private ingredients: Ingredients[]= [];
 private gerecht: Gerecht[] = [];
-  private recipes: Recipes[]= [  ];
+
+  private recipes: Recipes[]= [];
+
 
 
   constructor(private http: Http) { }
 
+  constructor(private http: Http) { }
 
   getIngredientlist() {
+
+
 
     return this.ingredients;
   }
@@ -49,20 +54,23 @@ private gerecht: Gerecht[] = [];
   }
 
   getRecipeByIdInfo(id: number): Promise<Gerecht> {
-  const  gerechtje: Gerecht[] = [];
+
+    if(this.gerecht.length===0)
+    {
     const unirest = require('unirest');
    const requestHandler = require('unirest-request-handler');
-   return requestHandler.handle(unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' +
-   id + '/information?includeNutrition=false')
+   return requestHandler.handle(unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+id+'/information?includeNutrition=false')
     .header('X-Mashape-Key', 'JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE')
     .header('X-Mashape-Host' , 'spoonacular-recipe-food-nutrition-v1.p.mashape.com'))
     .then(response => {
-      for (const d of response) {
-        gerechtje.push(d);
-              }
-      console.log(gerechtje);
-    console.log(response);
-         });
+      this.gerecht.push(response);
+      console.log(this.gerecht);
+    });
+    }
+    else{
+      this.gerecht.length=0;
+      this.getRecipeByIdInfo(id);
+    }
   }
 
   getRecipyByIngredient(ingredient:string): Promise<Recipes>{
