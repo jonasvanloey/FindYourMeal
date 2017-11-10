@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 import {Observable} from 'rxjs';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs';
+import {Recipes} from "./recipes.model";
 
 
 import {Recipes} from './recipes.model';
