@@ -38,3 +38,8 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+@media screen and (max-width: 990px){
+  .sidenav{
+    background-color: #373736 !important;
+  }
+}

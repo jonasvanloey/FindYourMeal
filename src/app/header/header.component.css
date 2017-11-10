@@ -17,3 +17,9 @@ select:hover{
 #aantalBox option:hover {
   background-color:yellow;
 }
+@media screen and (max-width: 990px){
+  #logo{
+    width: 14%;
+    margin: 0%;
+  }
+}

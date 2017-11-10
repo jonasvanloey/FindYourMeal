@@ -28,7 +28,13 @@ export class IngredientListComponent implements OnInit {
           console.log(this.ingredients);
 
         }
-        this.searchservice.getRecipyByIngredient(this.ingredients);
+        if(this.ingredientlist.length != 0){
+          this.searchservice.getRecipyByIngredient(this.ingredients);
+        }
+        else{
+          this.searchservice.emptyarray();
+        }
+
 
 
 
@@ -38,7 +44,5 @@ export class IngredientListComponent implements OnInit {
     );
     this.ingredientlist = this.searchservice.getIngredientlist();
   }
-  onDelete(id: number) {
-    this.searchservice.deleteIngredient(id);
-  }
+
 }
