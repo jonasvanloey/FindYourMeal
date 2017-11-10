@@ -3,21 +3,21 @@ import { Http, Response } from '@angular/http';
 import {Ingredients} from './ingredients.model';
 
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
-import {Subject} from "rxjs/Subject";
+import {Observable} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 import 'rxjs';
-import {Recipes} from "./recipes.model";
-
 
 @Injectable()
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
   recipeschanged= new Subject<Recipes[]>();
+
   private ingredients: Ingredients[]=[
   ];
   private recipes: Recipes[]=[
 
   ];
+
 
 
 
@@ -39,6 +39,9 @@ export class SearchService {
   }
   getRecipyByIngredient(ingredient:string): Promise<Recipes>{
 
+
+  getRecipyByIngredient(ingredient:string){
+
     const unirest = require('unirest');
     const requestHandler = require('unirest-request-handler');
     return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
@@ -55,5 +58,5 @@ export class SearchService {
   }
 
 
-}
 
+}
