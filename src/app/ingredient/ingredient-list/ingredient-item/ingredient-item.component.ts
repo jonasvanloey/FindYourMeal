@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import {Ingredients} from "../../../shared/ingredients.model";
+import {SearchService} from "../../../shared/search.service";
 
 @Component({
   selector: 'app-ingredient-item',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ingredient-item.component.css']
 })
 export class IngredientItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() ingredient: Ingredients;
+  @Input() index : number;
+  constructor(private searchservice: SearchService) { }
 
   ngOnInit() {
+  }
+  onDelete(id:number){
+    this.searchservice.deleteIngredient(id);
+
   }
 
 }
