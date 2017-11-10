@@ -12,7 +12,7 @@ export class INGREDIENT {
 }
 
 export class Gerecht {
-   public title: string;
+  public title: string;
   public readyInMinutes: number;
   public image: string;
   public instructions: string;
@@ -27,10 +27,10 @@ export class Gerecht {
 // public extendsIngredients: INGREDIENT[];
 
 
-  constructor(title: string, readyInMinutes: number, image: string, instructions: string, vegetarian: boolean,
+  constructor( title: string, readyInMinutes: number, image: string, instructions: string, vegetarian: boolean,
               vegan: boolean, cheap: boolean, imageType: string,
               servings: number, preperationMinutes: number, cookingMinutes: number, sourceUrl: string) {
-   this.title = title;
+    this.title = title;
   this.readyInMinutes = readyInMinutes;
   this.image = image;
   this.instructions = instructions;
