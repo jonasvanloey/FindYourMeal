@@ -29,7 +29,8 @@ export class IngredientListComponent implements OnInit {
           console.log(this.ingredients);
 
         }
-        console.log(this.searchservice.getRecipyByIngredient(this.ingredients));
+        var request = this.searchservice.getRecipyByIngredient(this.ingredients);
+        console.log(request);
 
 
 
