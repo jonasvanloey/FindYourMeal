@@ -24,10 +24,12 @@ visible =  true;
 
       //  this.searchservice.getRecipeId(this.id);
       //  console.log( this.searchservice.getRecipeByIdInfo(this.id));
-        console.log(    this.searchservice.getRecipeByIdInfo(this.id));
+           this.searchservice.getRecipeByIdInfo(this.id);
         this.gerechtlist = this.searchservice.getRecipeDetailList();
           console.log(this.gerechtlist);
-          this.visible = true;
+          if (this.gerechtlist) {
+            this.visible = true;
+          }
                }
     );
 
