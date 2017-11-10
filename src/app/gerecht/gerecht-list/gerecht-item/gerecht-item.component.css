@@ -1,0 +1,13 @@
+.list-group-item.black{
+  background-color: rgba(0,0,0,0.7) !important;
+  color: white;
+  margin:5px;
+  border:none;
+  border-radius: 0px !important;
+}
+.black:hover{
+  background-color: rgba(0,0,0,0.5) !important;
+}
+.list-group-item-heading{
+  color: white !important;
+}
