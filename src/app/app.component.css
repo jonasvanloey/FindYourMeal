@@ -6,6 +6,11 @@
   border-radius: 10px;
 
 }
+
+
+[hidden] {
+  display: none !important;
+}
 @media screen and (max-width: 990px){
   .knife{
     display: none;

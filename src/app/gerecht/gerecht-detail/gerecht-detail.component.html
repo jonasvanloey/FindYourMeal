@@ -1,5 +1,10 @@
 <div class="row">
-  <div [hidden]="visible" class="col-lg-12 col-md-12" id="gerechtDetail" >
+  <div class="col-lg-12 col-md-12"  *ngIf="">
+    <div class="col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 ">
+    <h1>gekozen gerecht</h1>
+      </div>
+  </div>
+  <div  class="col-lg-12 col-md-12" id="gerechtDetail" *ngIf="gerechtlist.length>0" >
 
 
     <div class="col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 ">

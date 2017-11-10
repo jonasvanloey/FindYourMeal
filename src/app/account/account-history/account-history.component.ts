@@ -13,12 +13,7 @@ title:string;
 
   ngOnInit() {
 
-      var userId = firebase.auth().currentUser.uid;
-      firebase.database().ref('favorites/' + userId).once('value').then(function(snapshot) {
-        this.title=snapshot.val().title;
-
-      });
-    console.log(this.title);
+      // console.log(this.authservice.getfavorites());
 
 
 
