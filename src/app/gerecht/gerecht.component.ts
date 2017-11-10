@@ -10,6 +10,7 @@ export class GerechtComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

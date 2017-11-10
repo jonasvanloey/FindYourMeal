@@ -12,6 +12,7 @@ export class GerechtDetailComponent implements OnInit {
 gerecht: Gerecht;
 id: number;
 gerechtlist: any;
+
 visible =  true;
   favorite = [];
   constructor(private searchservice: SearchService, private route: ActivatedRoute) { }

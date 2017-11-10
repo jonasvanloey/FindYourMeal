@@ -31,6 +31,18 @@
     <h3>Ready in (in min): </h3>
     <p>{{gerechtlist[0].readyInMinutes}}</p>
 
+      <div class="row">
+        <div class="col-xs-12" *ngIf="authservice.isAuthenticated()">
+          <button class="zoek btn" (click)="onFavorite(gerechtlist[0].title,gerechtlist[0].id)">favorite</button>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="zoek btn" (click)="collect()">Collect & Go</button>
+        </div>
+      </div>
+      <!--lijst van ingredienten-->
     <h3>Serving:</h3>
     <p> {{gerechtlist[0].servings}}</p>
     <h3>Vegetarian:</h3>
@@ -39,6 +51,7 @@
     <p> {{gerechtlist[0].vegan}}</p>
   </div>
 
+    <!--&lt;!&ndash;lijst van ingredienten&ndash;&gt;-->
 
   <div class="row">
     <div class="col-xs-6">
