@@ -13,46 +13,32 @@ declare let require: any;
 })
 export class SearchBoxComponent implements OnInit {
   ingredientsForm: FormGroup;
-  ingredient: Ingredients[];
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
+
   ngOnInit() {
-    this.addIngredient();
- //   this.initForm();
+    this.initForm();
 
-
-//     getRecipyByIngredient (ingredient: string) {
-//       this.unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=' +
-//         'false&ingredients=' + ingredient + '&limitLicense=false&number=5&ranking=1')
-//         .header('X-Mashape-Key', 'JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE')
-//         .header('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
-//         .header.append('Access-Control-Allow-Credentials', 'true')
-//         .header.append('Access-Control-Allow-Methods', 'GET')
-//         .header.append('Access-Control-Allow-Origin', '*')
-//         .end(function (result) {
-//           console.log(result);
-//         });
-
-    }
-
-    addIngredient() {
+  }
+  addIngredient(){
     console.log(this.ingredientsForm.value);
-    if (this.ingredientsForm.value !== '') {
-      this.searchservice.addIngredientToList(this.ingredientsForm.value);
-      this.ingredientsForm.reset();
-    }
-    }
-  private initForm() {
-    const ingredient = '';
+  if(this.ingredientsForm.value!=="")
+  {
 
-   // this.searchBox.getRecipyByIngredient
-   //   .subcribe
+    this.searchservice.addIngredientToList(this.ingredientsForm.value);
+    this.ingredientsForm.reset()
+  }
 
-    this.ingredientsForm = new FormGroup({
-      'ingredient': new FormControl(ingredient, Validators.required),
+  }
+  private initForm(){
+    let ingredient="";
 
+
+
+    this.ingredientsForm= new FormGroup({
+      'ingredient':new FormControl(ingredient,Validators.required),
     });
 
   }
+
+
 }
-
-

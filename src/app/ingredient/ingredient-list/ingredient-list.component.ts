@@ -16,29 +16,30 @@ export class IngredientListComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.searchservice.ingredientschanged.subscribe(
-    //   (ingredients: Ingredients[])=>{
-    //     this.ingredientlist=ingredients;
-    //     for(var i=0;i<this.ingredientlist.length;i++){
-    //       if(i!=0){
-    //         this.ingredients +='%2C'+this.ingredientlist[i].ingredient;
-    //       }
-    //       else{
-    //         this.ingredients =this.ingredientlist[i].ingredient;
-    //       }
-    //       console.log(this.ingredients);
-    //
-    //     }
-    //     console.log(this.searchservice.getRecipyByIngredient(this.ingredients));
-    //
-    //
-    //
-    //
-    //   }
-    // );
-    // this.ingredientlist=this.searchservice.getIngredientlist();
+    this.searchservice.ingredientschanged.subscribe(
+      (ingredients: Ingredients[])=>{
+        this.ingredientlist=ingredients;
+        for(var i=0;i<this.ingredientlist.length;i++){
+          if(i!=0){
+            this.ingredients +='%2C'+this.ingredientlist[i].ingredient;
+          }
+          else{
+            this.ingredients =this.ingredientlist[i].ingredient;
+          }
+          console.log(this.ingredients);
+
+        }
+        var request = this.searchservice.getRecipyByIngredient(this.ingredients);
+        console.log(request);
+
+
+
+
+      }
+    );
+    this.ingredientlist=this.searchservice.getIngredientlist();
   }
-  onDelete(id: number) {
+  onDelete(id:number){
     this.searchservice.deleteIngredient(id);
   }
 }
