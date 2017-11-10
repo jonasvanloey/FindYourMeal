@@ -14,13 +14,28 @@ import {Recipes} from './recipes.model';
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
   recipeschanged= new Subject<Recipes[]>();
+<<<<<<< HEAD
   private ingredients: Ingredients[]= [];
+=======
+
+  private ingredients: Ingredients[]=[
+  ];
+  private recipes: Recipes[]=[
+
+  ];
+
+
+>>>>>>> c3b877be6edcfa5852406b13624bde923f8f8bc4
 
 
   constructor(private http: Http) { }
 
+<<<<<<< HEAD
   getIngredientlist() {
     console.log(this.ingredients);
+=======
+  getIngredientlist(){
+>>>>>>> c3b877be6edcfa5852406b13624bde923f8f8bc4
     return this.ingredients;
   }
   addIngredientToList(ingredient: Ingredients) {
@@ -31,9 +46,15 @@ export class SearchService {
     this.ingredients.splice((id),1);
     this.ingredientschanged.next(this.ingredients);
   }
+  getRecipelist(){
+    return this.recipes;
+  }
+  getRecipyByIngredient(ingredient:string): Promise<Recipes>{
+
 
   getRecipyByIngredient(ingredient: string) {
 
+<<<<<<< HEAD
     // console.log(this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=f
     // alse&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
     //   .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
@@ -51,8 +72,26 @@ export class SearchService {
       .header('X-Mashape-Host' , "spoonacular-recipe-food-nutrition-v1.p.mashape.com')
       .end(function (result) {
         console.log(result.body);
+=======
+    const unirest = require('unirest');
+    const requestHandler = require('unirest-request-handler');
+    return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
+      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com"))
+      .then(response =>{
+        for(const d of response){
+          this.recipes.push(d);
+        }
+        console.log(response);
+        console.log(this.recipes);
+>>>>>>> c3b877be6edcfa5852406b13624bde923f8f8bc4
       });
 
   }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c3b877be6edcfa5852406b13624bde923f8f8bc4
 }

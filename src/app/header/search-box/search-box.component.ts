@@ -19,12 +19,23 @@ export class SearchBoxComponent implements OnInit {
    // this.initForm();
 
   }
+<<<<<<< HEAD
   addIngredient() {
     const ingredient = '' ;
     console.log(this.ingredientsForm.value);
 
   if (  this.ingredientsForm.value !== '')  {
+=======
 
+  addIngredient(){
+    console.log(this.ingredientsForm.value.ingredient);
+  if(this.ingredientsForm.value.ingredient ==="")
+>>>>>>> c3b877be6edcfa5852406b13624bde923f8f8bc4
+
+  {
+    console.log('empty')
+  }
+  else {
     this.searchservice.addIngredientToList(this.ingredientsForm.value);
 
     this.ingredientsForm.reset();
