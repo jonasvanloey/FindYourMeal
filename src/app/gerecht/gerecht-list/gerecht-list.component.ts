@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Recipes} from "../../shared/recipes.model";
-import {SearchService} from "../../shared/search.service";
+import {Recipes} from '../../shared/recipes.model';
+import {SearchService} from '../../shared/search.service';
 
 @Component({
   selector: 'app-gerecht-list',
@@ -8,12 +8,12 @@ import {SearchService} from "../../shared/search.service";
   styleUrls: ['./gerecht-list.component.css']
 })
 export class GerechtListComponent implements OnInit {
-recipes: Recipes[]
+recipes: Recipes[];
 
   constructor(private searchservice: SearchService) { }
 
   ngOnInit() {
-    this.recipes=this.searchservice.getRecipelist();
+    this.recipes = this.searchservice.getRecipelist();
   }
 
 }

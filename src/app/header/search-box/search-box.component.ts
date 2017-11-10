@@ -16,32 +16,31 @@ export class SearchBoxComponent implements OnInit {
   ingredientsForm: FormGroup;
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
   ngOnInit() {
-    this.initForm();
+  this.initForm();
 
   }
 
-  addIngredient(){
-    console.log(this.ingredientsForm.value.ingredient);
-  if(this.ingredientsForm.value.ingredient ==="")
 
-  {
-    console.log('empty')
+
+      addIngredient() {
+        console.log(this.ingredientsForm.value.ingredient);
+        if (this.ingredientsForm.value.ingredient === '') {
+          console.log('empty');
+        } else {
+          this.searchservice.addIngredientToList(this.ingredientsForm.value);
+
+          this.ingredientsForm.reset();
+        }
+      }
+      private initForm() {
+        const ingredient = '';
+
+        this.ingredientsForm = new FormGroup({
+          'ingredient': new FormControl( ingredient, Validators.required),
+
+
+        });
+
+      }
   }
-  else {
-    this.searchservice.addIngredientToList(this.ingredientsForm.value);
-    this.ingredientsForm.reset()
-  }
-
-
-
-
-    this.ingredientsForm = new FormGroup({
-      'ingredient': new FormControl(ingredient, Validators.required),
-
-
-    });
-
-  }
-
-}
 

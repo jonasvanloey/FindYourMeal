@@ -12,8 +12,7 @@ export class INGREDIENT {
 }
 
 export class Gerecht {
-  public id: number;
-  public title: string;
+   public title: string;
   public readyInMinutes: number;
   public image: string;
   public instructions: string;
@@ -24,24 +23,25 @@ export class Gerecht {
   public preperationMinutes: number;
   public cookingMinutes: number;
   public sourceUrl: string;
-public extendsIngredients: INGREDIENT[];
+  public imageType: string;
+// public extendsIngredients: INGREDIENT[];
 
 
-  constructor(id: number, title: string, readyInMinutes: number, image: string, instructions: string, vegetarian: boolean,
-              vegan: boolean, cheap: boolean,
-              servings: number, preperationMinutes: number, cookingMinutes: number, sourceUrl: string, extendsIngredients: INGREDIENT[]) {
-  this.id = id;
-  this.title = title;
+  constructor(title: string, readyInMinutes: number, image: string, instructions: string, vegetarian: boolean,
+              vegan: boolean, cheap: boolean, imageType: string,
+              servings: number, preperationMinutes: number, cookingMinutes: number, sourceUrl: string) {
+   this.title = title;
   this.readyInMinutes = readyInMinutes;
   this.image = image;
   this.instructions = instructions;
   this.vegan = vegan;
   this.vegetarian = vegetarian;
   this.cheap = cheap;
+  this.imageType =  imageType;
   this.servings =  servings;
   this.preperationMinutes = preperationMinutes;
   this.cookingMinutes = cookingMinutes;
   this.sourceUrl = sourceUrl;
-  this.extendsIngredients = extendsIngredients;
+  // this.extendsIngredients = extendsIngredients;
   }
 }

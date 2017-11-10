@@ -1,4 +1,4 @@
-export class Recipes{
+export class Recipes {
   public id: number;
   public title: string;
   public image: string;
@@ -8,14 +8,14 @@ export class Recipes{
   public likes: number;
 
 
-  constructor(id: number, title:string, image:string, imageType: string,usedIngredientCount: number, missedIngredientCount: number, likes: number)
-  {
-    this.id=id;
-    this.title=title;
-    this.image=image;
-    this.imageType=imageType;
-    this.usedIngredientCount=usedIngredientCount;
-    this.missedIngredientCount=missedIngredientCount;
-    this.likes=likes;
+  constructor(id: number, title: string, image: string, imageType: string, usedIngredientCount:
+    number, missedIngredientCount: number, likes: number)  {
+    this.id = id;
+    this.title = title;
+    this.image = image;
+    this.imageType = imageType;
+    this.usedIngredientCount = usedIngredientCount;
+    this.missedIngredientCount = missedIngredientCount;
+    this.likes = likes;
   }
 }
