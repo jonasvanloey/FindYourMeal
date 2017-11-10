@@ -1,3 +1,13 @@
-<p>
-  gerecht-item works!
-</p>
+<a [routerLink]="[recipe.id]" class="list-group-item  black clearfix" style="cursor:pointer;">
+  <div class="row">
+    <div class="col-xs-4">
+      <img src="{{recipe.image}}" alt="" style="width: 100px;">
+    </div>
+    <div class="col-xs-8">
+      <h4 class="list-group-item-heading">
+        {{recipe.title}}
+      </h4>
+      <p>likes: {{recipe.likes}}</p>
+    </div>
+  </div>
+</a>

@@ -1,1 +1,9 @@
+.plank{
+  background: url(./img/snijplank2.png) no-repeat center center fixed;
+  min-height: 700px;
+  width: 97%;
+  margin-left:1.5%;
+  border-radius: 10px;
+
+}
 

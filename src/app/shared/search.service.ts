@@ -11,14 +11,19 @@ import 'rxjs';
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
   recipeschanged= new Subject<Recipes[]>();
-  private ingredients: Ingredients[]= [
+
+  private ingredients: Ingredients[]=[
+  ];
+  private recipes: Recipes[]=[
+
+  ];
+
 
 
 
   constructor(private http: Http) { }
 
   getIngredientlist(){
-    console.log(this.ingredients);
     return this.ingredients;
   }
   addIngredientToList(ingredient:Ingredients){
@@ -29,25 +34,29 @@ export class SearchService {
     this.ingredients.splice((id),1);
     this.ingredientschanged.next(this.ingredients);
   }
+  getRecipelist(){
+    return this.recipes;
+  }
+  getRecipyByIngredient(ingredient:string): Promise<Recipes>{
+
 
   getRecipyByIngredient(ingredient:string){
 
-    // console.log(this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
-    //   .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
-    //   .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-    //   .end());
     const unirest = require('unirest');
     const requestHandler = require('unirest-request-handler');
     return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
-      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE"))
-      .then(response =>response);
+      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com"))
+      .then(response =>{
+        for(const d of response){
+          this.recipes.push(d);
+        }
+        console.log(response);
+        console.log(this.recipes);
+      });
 
   }
 
-  // toarray(array:any)
-  // {
-  //   console.log(array);
-  // }
 
 
 }
