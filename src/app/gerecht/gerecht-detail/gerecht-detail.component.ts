@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Gerecht} from '../../shared/gerecht.model';
+import {SearchService} from '../../shared/search.service';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 
 @Component({
   selector: 'app-gerecht-detail',
@@ -6,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gerecht-detail.component.css']
 })
 export class GerechtDetailComponent implements OnInit {
+gerecht: Gerecht;
+id: number;
+gerechtlist: any;
+  constructor(private searchservice: SearchService, private route: ActivatedRoute) { }
 
-  constructor() { }
-
+  // asyn nakijken of id veranderd om details van te laten zien
   ngOnInit() {
-  }
-
-
-}
+    this.route.params.subscribe(
+      (params: Params ) => {
+        this.id = +params['id'];
+        console.log(this.id);
+         this.searchservice.getRecipeByIdInfo(this.id);
+        
+       }
+    );
+    this.gerechtlist = this.searchservice.getRecipeDetailList();
+    console.log(this.gerechtlist);
+      }
+      }

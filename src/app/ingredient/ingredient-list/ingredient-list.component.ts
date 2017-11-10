@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Ingredients} from "../../shared/ingredients.model";
-import {SearchService} from "../../shared/search.service";
-import {removeSuffix} from "@angular/language-service/src/utils";
+import {Ingredients} from '../../shared/ingredients.model';
+import {SearchService} from '../../shared/search.service';
+import {removeSuffix} from '@angular/language-service/src/utils';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -17,14 +17,13 @@ export class IngredientListComponent implements OnInit {
 
   ngOnInit() {
     this.searchservice.ingredientschanged.subscribe(
-      (ingredients: Ingredients[])=>{
-        this.ingredientlist=ingredients;
-        for(var i=0;i<this.ingredientlist.length;i++){
-          if(i!=0){
-            this.ingredients +='%2C'+this.ingredientlist[i].ingredient;
-          }
-          else{
-            this.ingredients =this.ingredientlist[i].ingredient;
+      (ingredients: Ingredients[]) => {
+        this.ingredientlist = ingredients;
+        for (let  i = 0; i < this.ingredientlist.length; i++) {
+          if ( i !== 0) {
+            this.ingredients += '%2C' + this.ingredientlist[i].ingredient;
+          }          else {
+            this.ingredients = this.ingredientlist[i].ingredient;
           }
           console.log(this.ingredients);
 
@@ -43,7 +42,7 @@ export class IngredientListComponent implements OnInit {
 
       }
     );
-    this.ingredientlist=this.searchservice.getIngredientlist();
+    this.ingredientlist = this.searchservice.getIngredientlist();
   }
 
 }

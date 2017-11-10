@@ -8,36 +8,64 @@ import {Subject} from 'rxjs/Subject';
 import 'rxjs';
 import {Recipes} from "./recipes.model";
 
+
+import {Gerecht} from './gerecht.model';
+
 @Injectable()
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
   recipeschanged= new Subject<Recipes[]>();
-
-  private ingredients: Ingredients[]=[
-  ];
-  private recipes: Recipes[]=[
-
-  ];
-
-
+gerechtchanged =  new Subject<Gerecht[]>();
+  private ingredients: Ingredients[]= [];
+private gerecht: Gerecht[] = [];
+  private recipes: Recipes[]= [];
 
 
   constructor(private http: Http) { }
 
-  getIngredientlist(){
+
+  getIngredientlist() {
+
     return this.ingredients;
   }
-  addIngredientToList(ingredient:Ingredients){
+  addIngredientToList(ingredient: Ingredients) {
     this.ingredients.push(ingredient);
     this.ingredientschanged.next(this.ingredients);
   }
-  deleteIngredient(id: number){
-    this.ingredients.splice((id),1);
+  deleteIngredient(id: number) {
+    this.ingredients.splice((id), 1 );
     this.ingredientschanged.next(this.ingredients);
   }
-  getRecipelist(){
+  getRecipelist() {
     return this.recipes;
   }
+
+  getRecipeDetailList() {
+    return this.gerecht;
+  }
+  getRecipeId(id: number) {
+   return this.ingredients[id];
+  }
+
+  getRecipeByIdInfo(id: number): Promise<Gerecht> {
+    if(this.gerecht.length===0)
+    {
+    const unirest = require('unirest');
+   const requestHandler = require('unirest-request-handler');
+   return requestHandler.handle(unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+id+'/information?includeNutrition=false')
+    .header('X-Mashape-Key', 'JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE')
+    .header('X-Mashape-Host' , 'spoonacular-recipe-food-nutrition-v1.p.mashape.com'))
+    .then(response => {
+      this.gerecht.push(response);
+      console.log(this.gerecht);
+    });
+    }
+    else{
+      this.gerecht.length=0;
+      this.getRecipeByIdInfo(id);
+    }
+  }
+
   getRecipyByIngredient(ingredient:string): Promise<Recipes>{
   console.log(this.recipes.length);
     if(this.recipes.length===0)
@@ -68,7 +96,5 @@ export class SearchService {
   emptyarray(){
     this.recipes.length=0;
   }
-
-
 
 }
