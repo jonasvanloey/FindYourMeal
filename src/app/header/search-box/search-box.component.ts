@@ -36,6 +36,7 @@ export class SearchBoxComponent implements OnInit {
 
 
 
+
       private initForm() {
         const ingredient = '';
 

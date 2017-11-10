@@ -9,6 +9,7 @@ import 'rxjs';
 import {Recipes} from "./recipes.model";
 
 
+
 import {Gerecht} from './gerecht.model';
 
 @Injectable()
@@ -18,13 +19,18 @@ export class SearchService {
 gerechtchanged =  new Subject<Gerecht[]>();
   private ingredients: Ingredients[]= [];
 private gerecht: Gerecht[] = [];
+
   private recipes: Recipes[]= [];
+
 
 
   constructor(private http: Http) { }
 
+  constructor(private http: Http) { }
 
   getIngredientlist() {
+
+
 
     return this.ingredients;
   }
@@ -48,6 +54,7 @@ private gerecht: Gerecht[] = [];
   }
 
   getRecipeByIdInfo(id: number): Promise<Gerecht> {
+
     if(this.gerecht.length===0)
     {
     const unirest = require('unirest');
