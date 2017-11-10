@@ -4,32 +4,37 @@
 
   <div class="col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 ">
     <!--titel-->
-    <h2>Gerecht naam :  {{gerecht.title}}</h2>
+    <h2>Gerecht naam : {{gerechtlist[0].title}}</h2>
   </div>
   <div class="clearfix"></div>
 
   <div class="col-md-3 col-lg-3">
     <!--foto gerecht-->
-    <img src="{{gerechtlist.image}}" alt="{{gerechtlist.title}}" class="gerechtImg img-responsive">
+    <img src="{{gerechtlist[0].image}}" alt="{{gerechtlist[0].title}}" class="gerechtImg img-responsive">
   </div>
 
 
 
   <div class="col-md-9 col-lg-9">
     <!--beschrijving-->
-    <p>Bereidingstijd (in min): {{gerechtlist.readyInMinutes}}</p>
-    <p>Voor aantal personen: {{gerechtlist.servings}}</p>
-    <p>Is het vegetarisch: {{gerechtlist.vegetarian}}</p>
-    <p>Is het veganistisch: {{gerechtlist.vegan}}</p>
+    <p>Bereidingstijd (in min): {{gerechtlist[0].readyInMinutes}}</p>
+    <p>Voor aantal personen: {{gerechtlist[0].servings}}</p>
+    <p>Is het vegetarisch: {{gerechtlist[0].vegetarian}}</p>
+    <p>Is het veganistisch: {{gerechtlist[0].vegan}}</p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="col-md-10">
+    <p>Voor meer info : {{gerechtlist[0].sourceUrl}}</p>
+    <p> Uitleg: {{gerechtlist[0].instructions}}</p>
+  </div>
 
-    <p>Voor meer info : {{gerechtlist.sourceUrl}}</p>
-    <p> Uitleg: {{gerechtlist.instructions}}</p>
 
 
 
     <div class="row">
       <div class="col-xs-12">
-        <button class="zoek btn" (click)="onFavo()">Steek in favoriete</button>
+        <button class="zoek btn" (click)="onFavorite(gerechtlist[0].title, gerechtlist[0].id)">Steek in favoriete
+        </button>
       </div>
     </div>
     <hr>
@@ -42,8 +47,6 @@
 
 
 
-    <!--knop collect & go-->
 
-  </div>
 </div>
 </div>
