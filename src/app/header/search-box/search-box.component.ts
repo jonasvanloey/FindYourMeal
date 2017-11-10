@@ -12,6 +12,7 @@ declare let require: any;
   styleUrls: ['./search-box.component.css']
 })
 export class SearchBoxComponent implements OnInit {
+
   ingredientsForm: FormGroup;
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
   ngOnInit() {
@@ -20,21 +21,24 @@ export class SearchBoxComponent implements OnInit {
   }
   addIngredient() {
     console.log(this.ingredientsForm.value);
-    if (this.ingredientsForm.value !== '') {
-      this.searchservice.addIngredientToList(this.ingredientsForm.value);
-      this.ingredientsForm.reset();
-    }
-    }
-  private initForm() {
-    const ingredient = '';
+
+  if(this.ingredientsForm.value!=="")
+  {
+
+    this.searchservice.addIngredientToList(this.ingredientsForm.value);
+    this.ingredientsForm.reset()
+  }
+
 
 
 
     this.ingredientsForm = new FormGroup({
       'ingredient': new FormControl(ingredient, Validators.required),
 
+
     });
 
   }
+
 }
 

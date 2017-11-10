@@ -13,10 +13,7 @@ export class SearchService {
   recipeschanged= new Subject<Recipes[]>();
   private ingredients: Ingredients[]= [
 
-  public recipes: Recipes[] = [
-    new Recipes( 1, 'title', ' foto', '.jpeg', 1, 0, 12)
-  ];
-  unirest = require('unirest');
+
 
   constructor(private http: Http) { }
 
@@ -34,13 +31,23 @@ export class SearchService {
   }
 
   getRecipyByIngredient(ingredient:string){
-    this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
-      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
-      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-      .end(function (result) {
-        console.log(result.body);
-      });
+
+    // console.log(this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
+    //   .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+    //   .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+    //   .end());
+    const unirest = require('unirest');
+    const requestHandler = require('unirest-request-handler');
+    return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
+      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE"))
+      .then(response =>response);
 
   }
+
+  // toarray(array:any)
+  // {
+  //   console.log(array);
+  // }
+
 
 }
