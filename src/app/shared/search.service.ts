@@ -13,12 +13,9 @@ import {Recipes} from './recipes.model';
 @Injectable()
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
-  recipeschanged = new Subject<Recipes[]>();
-  private ingredients: Ingredients[] = [];
-  private recipes: Recipes [] = [
-    new Recipes(1, 'title', ' foto', '.jpeg', 1, 0, 12)
-  ];
-
+  recipeschanged= new Subject<Recipes[]>();
+  private ingredients: Ingredients[]= [
+]
 
 
   constructor(private http: Http) { }
@@ -27,16 +24,17 @@ export class SearchService {
     console.log(this.ingredients);
     return this.ingredients;
   }
-  addIngredientToList(ingredient: Ingredients) {
+  addIngredientToList(ingredient : Ingredients) {
     this.ingredients.push(ingredient);
     this.ingredientschanged.next(this.ingredients);
   }
-  deleteIngredient(id: number) {
+  deleteIngredient(id : number) {
     this.ingredients.splice((id),1);
     this.ingredientschanged.next(this.ingredients);
   }
 
-  getRecipyByIngredient(ingredient: string){
+  getRecipyByIngredient(ingredient : string){
+
     // console.log(this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
     //   .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
     //   .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
@@ -53,6 +51,15 @@ export class SearchService {
   // {
   //   console.log(array);
   // }
+=========
+    this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
+      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+      .end(function (result) {
+        console.log(result.body);
+      });
+
+  }
+>>>>>>>>> Temporary merge branch 2
 
 }
-
