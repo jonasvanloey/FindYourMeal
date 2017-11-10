@@ -2,6 +2,7 @@ import * as firebase from 'firebase';
 import {Subject} from "rxjs";
 export class AuthService {
   token: string;
+// title: any;
 
 
   signupUser(email: string, password: string) {
@@ -47,5 +48,11 @@ export class AuthService {
       id : id
     });
   }
-
+  // getfavorites(){
+  //   var userId = firebase.auth().currentUser.uid;
+  //   return firebase.database().ref('favorites/' + userId).once('value').then(function(snapshot) {
+  //     this.title = (snapshot.val() && snapshot.val().title) || 'Anonymous';
+  //     console.log(this.title);
+  //   });
+  // }
 }

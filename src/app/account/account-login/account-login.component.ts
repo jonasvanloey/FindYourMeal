@@ -9,7 +9,7 @@ import {NgForm} from "@angular/forms";
 })
 export class AccountLoginComponent implements OnInit {
 
-  constructor(private authservice: AuthService) {
+  constructor(public authservice: AuthService) {
 
   }
 
