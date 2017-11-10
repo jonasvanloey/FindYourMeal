@@ -13,7 +13,7 @@ gerecht: Gerecht;
 id: number;
 gerechtlist: any;
   constructor(private searchservice: SearchService, private route: ActivatedRoute) { }
-
+favorite=[];
   // asyn nakijken of id veranderd om details van te laten zien
   ngOnInit() {
     this.route.params.subscribe(
@@ -21,10 +21,26 @@ gerechtlist: any;
         this.id = +params['id'];
         console.log(this.id);
          this.searchservice.getRecipeByIdInfo(this.id);
-        
+
+
        }
     );
     this.gerechtlist = this.searchservice.getRecipeDetailList();
     console.log(this.gerechtlist);
+      }
+
+      onFavorite(){
+        this.favorite=[
+          {
+            // id: this.gerechtlist.id,
+            // title: this.gerecht.title,
+            // user_id:1
+          }
+        ]
+        this.searchservice.storefavorite(this.favorite)
+          .subscribe(
+            (response)=>console.log(response),
+            (error)=>console.log(error)
+          );
       }
       }

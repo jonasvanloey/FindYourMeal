@@ -4,12 +4,16 @@ import {AccountSignupComponent} from './account/account-signup/account-signup.co
 import {AccountLoginComponent} from './account/account-login/account-login.component';
 import {GerechtComponent} from './gerecht/gerecht.component';
 import {GerechtDetailComponent} from './gerecht/gerecht-detail/gerecht-detail.component';
+import {AccountComponent} from "./account/account.component";
 
 
 
 const appRoutes: Routes = [
-  {path: 'SignUp' , component: AccountSignupComponent },
-  {path: 'SignIn' , component: AccountLoginComponent },
+
+  {path: 'LogIn' , component: AccountComponent, children:[
+    {path: 'SignUp' , component: AccountSignupComponent },
+    {path: 'SignIn' , component: AccountLoginComponent },
+  ] },
   {path: ':id', component: GerechtDetailComponent}
   ];
 
