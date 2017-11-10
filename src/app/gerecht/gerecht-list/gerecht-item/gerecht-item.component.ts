@@ -1,5 +1,5 @@
-import { Component, OnInit,Input  } from '@angular/core';
-import {Recipes} from "../../../shared/recipes.model";
+import { Component, OnInit, Input  } from '@angular/core';
+import {Recipes} from '../../../shared/recipes.model';
 
 @Component({
   selector: 'app-gerecht-item',
@@ -7,8 +7,8 @@ import {Recipes} from "../../../shared/recipes.model";
   styleUrls: ['./gerecht-item.component.css']
 })
 export class GerechtItemComponent implements OnInit {
-  @Input() recipe : Recipes;
-  @Input() index : number;
+  @Input() recipe: Recipes;
+  @Input() index: number;
   constructor() { }
 
   ngOnInit() {

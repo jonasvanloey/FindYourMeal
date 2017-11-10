@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AccountSignupComponent} from "./account/account-signup/account-signup.component";
-import {AccountLoginComponent} from "./account/account-login/account-login.component";
-import {GerechtComponent} from "./gerecht/gerecht.component";
+import {AccountSignupComponent} from './account/account-signup/account-signup.component';
+import {AccountLoginComponent} from './account/account-login/account-login.component';
+import {GerechtComponent} from './gerecht/gerecht.component';
+import {GerechtDetailComponent} from './gerecht/gerecht-detail/gerecht-detail.component';
 
 
 
 const appRoutes: Routes = [
-  {path: 'SignUp',component:AccountSignupComponent },
-  {path: 'SignIn',component:AccountLoginComponent },
-
-];
+  {path: 'SignUp' , component: AccountSignupComponent },
+  {path: 'SignIn' , component: AccountLoginComponent },
+  {path: ':id', component: GerechtDetailComponent}
+  ];
 
 @NgModule({
   imports: [
