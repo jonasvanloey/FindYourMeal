@@ -15,13 +15,15 @@ export class AccountLoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSignin(form: NgForm){
+
+  onSignin(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    this.authservice.signinUser(email,password);
+    this.authservice.signinUser(email, password);
 
   }
-  onLogOut(){
+
+  onLogOut() {
     this.authservice.LogOut();
   }
 
