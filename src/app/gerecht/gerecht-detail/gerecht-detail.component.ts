@@ -12,6 +12,7 @@ import {AuthService} from "../../account/auth.service";
 export class GerechtDetailComponent implements OnInit {
 gerecht: Gerecht;
 id: number;
+  visible=false;
 gerechtlist: any;
   constructor(private searchservice: SearchService, private route: ActivatedRoute, private authservice: AuthService) { }
 favorite=[];
@@ -27,21 +28,11 @@ favorite=[];
        }
     );
     this.gerechtlist = this.searchservice.getRecipeDetailList();
-    console.log(this.gerechtlist);
-      }
 
-      onFavorite(){
-        this.favorite=[
-          {
-            // id: this.gerechtlist.id,
-            // title: this.gerecht.title,
-            // user_id:1
-          }
-        ]
-        this.searchservice.storefavorite(this.favorite)
-          .subscribe(
-            (response)=>console.log(response),
-            (error)=>console.log(error)
-          );
+  }
+
+      onFavorite(title:string, id:number){
+
+        this.authservice.storefavorite(title,id);
       }
       }

@@ -1,6 +1,8 @@
 import * as firebase from 'firebase';
+import {Subject} from "rxjs";
 export class AuthService {
   token: string;
+
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -37,4 +39,13 @@ export class AuthService {
     firebase.auth().signOut();
     this.token = null;
   }
+
+  storefavorite(title:string, id:number){
+    var userId=firebase.auth().currentUser.uid;
+    firebase.database().ref('favorites/'+userId ).set({
+      title: title,
+      id : id
+    });
+  }
+
 }
