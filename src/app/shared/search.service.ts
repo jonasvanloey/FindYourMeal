@@ -38,23 +38,34 @@ export class SearchService {
     return this.recipes;
   }
   getRecipyByIngredient(ingredient:string): Promise<Recipes>{
+  console.log(this.recipes.length);
+    if(this.recipes.length===0)
+    {
+      const unirest = require('unirest');
+      const requestHandler = require('unirest-request-handler');
+      return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
+        .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
+        .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com"))
+        .then(response =>{
+          for(const d of response){
+            this.recipes.push(d);
+          }
+          console.log(response);
+          console.log(this.recipes);
+        });
 
 
-  getRecipyByIngredient(ingredient:string){
+    }
+    else{
+      this.recipes.length=0;
+      this.getRecipyByIngredient(ingredient);
+    }
 
-    const unirest = require('unirest');
-    const requestHandler = require('unirest-request-handler');
-    return requestHandler.handle(unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ingredient+"&limitLicense=false&number=5&ranking=1")
-      .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
-      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com"))
-      .then(response =>{
-        for(const d of response){
-          this.recipes.push(d);
-        }
-        console.log(response);
-        console.log(this.recipes);
-      });
 
+
+  }
+  emptyarray(){
+    this.recipes.length=0;
   }
 
 

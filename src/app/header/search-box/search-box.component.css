@@ -32,3 +32,9 @@ font-size: medium;
   margin-left: 40%;
   margin-top: 2%;
 }
+@media screen and (max-width: 990px){
+  #searchField{
+    margin-left: 0%;
+    margin-top: 2%;
+  }
+}
