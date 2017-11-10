@@ -31,7 +31,7 @@ import { AccountSignupComponent } from './account/account-signup/account-signup.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './account/auth.service';
 import { AccountHistoryComponent } from './account/account-history/account-history.component';
-import {SearchService} from "./shared/search.service";
+import {SearchService} from './shared/search.service';
 
 // export const firebaseConfig = {
 //   apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",

@@ -10,15 +10,20 @@ export class SearchBoxService {
   unirest = require('unirest');
 
   constructor(private http: Http) { }
-  // getRecipyByIngredient(ingredients:string){
-  //   this.unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngre
-  // dients=false&ingredients="+ingredients+"&limitLicense=false&number=5&ranking=1")
-  //     .header("X-Mashape-Key", "JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE")
-  //     .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-  //     .end(function (result) {
-  //       console.log(result.status, result.headers, result.body);
-  //     });
-  //
-  // }
+  getRecipyByIngredient(ingredients: string) {
+    this.unirest.get('https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngre' +
+      'dients=false&ingredients="+ingredients+"&limitLicense=false&number=5&ranking=1')
+      .header('X-Mashape-Key', 'JlriWXppBkmshvo2hWZ5wnSJLhSUp1Z1xNEjsnBi1CiXFKv2FE')
+      .header('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
+      .header.append('Access-Control-Allow-Credentials', 'true')
+      .header.append('Access-Control-Allow-Methods', 'GET')
+      .header.append('Access-Control-Allow-Origin', '*')
+      .end(function (result) {
+        console.log(result);
+      });
 
+  }
+// weet ge w
 }
+
+
