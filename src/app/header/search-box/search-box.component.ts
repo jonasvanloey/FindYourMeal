@@ -16,9 +16,10 @@ export class SearchBoxComponent implements OnInit {
   ingredientsForm: FormGroup;
   constructor(private searchBox: SearchBoxService, private searchservice: SearchService) { }
   ngOnInit() {
-    this.initForm();
+  this.initForm();
 
   }
+
 
   addIngredient() {
     console.log(this.ingredientsForm.value.ingredient);
@@ -32,6 +33,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
 
+
   private initForm() {
       const ingredient = '';
 
@@ -39,9 +41,10 @@ export class SearchBoxComponent implements OnInit {
         'ingredient': new FormControl( ingredient, Validators.required),
 
 
-      });
+        });
+
+
+      }
 
   }
-
-}
 
