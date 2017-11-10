@@ -13,7 +13,7 @@ import { IngredientListComponent } from './ingredient/ingredient-list/ingredient
 import { IngredientItemComponent } from './ingredient/ingredient-list/ingredient-item/ingredient-item.component';
 import { IngredientDetailComponent } from './ingredient/ingredient-detail/ingredient-detail.component';
 import {HttpModule} from '@angular/http';
-import {GerechtService} from './gerecht/gerecht.service';
+import {GerechtService} from './shared/gerecht.service';
 import {IngredientService} from './ingredient/ingredient.service';
 import {SearchBoxService} from './header/search-box.service';
 

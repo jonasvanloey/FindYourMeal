@@ -3,21 +3,21 @@ import { Http, Response } from '@angular/http';
 import {Ingredients} from './ingredients.model';
 
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
-import {Subject} from "rxjs/Subject";
+import {Observable} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 import 'rxjs';
-import {Recipes} from "./recipes.model";
-
 
 @Injectable()
 export class SearchService {
   ingredientschanged = new Subject<Ingredients[]>();
   recipeschanged= new Subject<Recipes[]>();
+
   private ingredients: Ingredients[]=[
   ];
   private recipes: Recipes[]=[
 
   ];
+
 
 
 
@@ -54,11 +54,13 @@ export class SearchService {
           console.log(this.recipes);
         });
 
+
     }
     else{
       this.recipes.length=0;
       this.getRecipyByIngredient(ingredient);
     }
+
 
 
   }
@@ -67,5 +69,5 @@ export class SearchService {
   }
 
 
-}
 
+}
