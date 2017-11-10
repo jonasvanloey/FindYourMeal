@@ -70,6 +70,11 @@ private gerecht: Gerecht[] = [];
   emptyarray() {
     this.recipes.length = 0;
   }
+
+  // Firebase
+  storefavorite(favorite: any []) {
+    return this.http.post('https://findyourmeal-acb2b.firebaseio.com/data.json', favorite);
+  }
   getRecipeByIdInfo(id: number): Promise<Gerecht> {
 if ( this.gerecht.length === 0) {
 

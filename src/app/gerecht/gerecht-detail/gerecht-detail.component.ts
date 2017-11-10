@@ -13,6 +13,7 @@ gerecht: Gerecht;
 id: number;
 gerechtlist: any;
 visible =  true;
+  favorite = [];
   constructor(private searchservice: SearchService, private route: ActivatedRoute) { }
 
   // asyn nakijken of id veranderd om details van te laten zien
@@ -32,4 +33,19 @@ visible =  true;
             this.visible = true;
           }
                }
+
+  onFavorite() {
+    this.favorite = [
+      {
+        // id: this.gerechtlist.id,
+        // title: this.gerecht.title,
+        // user_id:1
+      }
+    ];
+    this.searchservice.storefavorite(this.favorite)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
+  }
       }
