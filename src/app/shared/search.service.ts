@@ -98,8 +98,6 @@ private gerecht: Gerecht[] = [];
   }
 
   //Firebase
-  storefavorite(favorite:any[]){
-    return this.http.post('https://findyourmeal-acb2b.firebaseio.com/data.json',favorite);
-  }
+
 
 }

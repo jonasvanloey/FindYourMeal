@@ -8,9 +8,10 @@ import * as firebase from 'firebase';
  })
 export class AppComponent implements OnInit {
   ngOnInit() {
-  // firebase.initializeApp({
-  //   apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
-  //   authDomain: "findyourmeal-acb2b.firebaseapp.com"
-  // });
+  firebase.initializeApp({
+    apiKey: "AIzaSyD3fnwS561PI6oc6P-uzEx8WsM5Nx7mrXg",
+    authDomain: "findyourmeal-acb2b.firebaseapp.com",
+    databaseURL: "https://findyourmeal-acb2b.firebaseio.com/"
+  });
   }
 }
